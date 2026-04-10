@@ -87,7 +87,3 @@ I evaluated four supervised learning algorithms to find the most efficient predi
 3. **-** Run the dashboard: `python app.py`.
 4. **-** Access the app at: `http://127.0.0.1:8050/`.
 
----
-
-**#### 👩‍💻 Developed by: Mariam Gaber**
-**#### ✅ Status: Completed & Production-Ready**
