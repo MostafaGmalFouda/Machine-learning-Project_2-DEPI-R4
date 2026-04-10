@@ -149,3 +149,7 @@ body {
 .predict-button-modern:active {
     transform: translateY(0px);
 }
+
+.custom-dropdown {
+    color: rgb(0, 0, 0); 
+}
