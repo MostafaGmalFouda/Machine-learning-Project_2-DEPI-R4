@@ -68,7 +68,7 @@ I evaluated four supervised learning algorithms to find the most efficient predi
 
 ---
 
-###📂 Project Structure
+### 📂 Project Structure
 ```plaintext
 ├── data/                # Raw and processed census data
 ├── models/              # Saved .pkl models, scaler, and feature lists
