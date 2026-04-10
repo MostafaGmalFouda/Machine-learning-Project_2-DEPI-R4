@@ -6,7 +6,7 @@ warnings.filterwarnings("ignore", category = UserWarning, module = "matplotlib")
 #
 # Display inline matplotlib plots with IPython
 from IPython import get_ipython
-get_ipython().run_line_magic('matplotlib', 'inline')
+#get_ipython().run_line_magic('matplotlib', 'inline')
 ###########################################
 
 import matplotlib.pyplot as pl
@@ -121,6 +121,9 @@ def evaluate(results, accuracy, f1):
     pl.show()
     
 
+
+
+        
 def feature_plot(importances, X_train, y_train):
     
     # Display the five most important features
@@ -144,3 +147,47 @@ def feature_plot(importances, X_train, y_train):
     pl.legend(loc = 'upper center')
     pl.tight_layout()
     pl.show()  
+
+#####################in gui 
+import plotly.express as px
+import pandas as pd
+
+COLORS = ['#64ffda', "#34c5e2", '#00b4d8', '#90e0ef']
+
+def apply_dark_theme(fig, **kwargs):
+    fig.update_layout(
+        template="plotly_dark",
+        paper_bgcolor='rgba(0,0,0,0)',
+        plot_bgcolor='rgba(0,0,0,0)',
+        font=dict(family="Poppins", color="#e6f1ff"),
+        margin=dict(l=20, r=20, t=50, b=20),
+        **kwargs
+    )
+    fig.update_xaxes(gridcolor='rgba(255,255,255,0.05)')
+    fig.update_yaxes(gridcolor='rgba(255,255,255,0.05)')
+    return fig
+
+def create_edu_plot(df):
+    fig = px.histogram(df, x="education_level", color="income", barmode="group",
+                       color_discrete_sequence=[COLORS[0], COLORS[1]],
+                       title="Income by Education")
+    return apply_dark_theme(fig)
+
+def create_age_plot(df):
+    fig = px.histogram(df, x="age", color="income", marginal="box",
+                       color_discrete_sequence=[COLORS[1], COLORS[2]],
+                       title="Age Distribution")
+    return apply_dark_theme(fig)
+
+def create_occ_plot(df):
+    df_occ = df.groupby(['occupation', 'income']).size().reset_index(name='count')
+    fig = px.bar(df_occ, y="occupation", x="count", color="income", orientation='h',
+                 color_discrete_sequence=[COLORS[0], COLORS[2]], title="Occupation Data")
+    return apply_dark_theme(fig)
+
+def create_income_pie(df):
+    income_counts = df['income'].str.strip().value_counts().reset_index()
+    income_counts.columns = ['Income Level', 'Count']
+    fig = px.pie(income_counts, values='Count', names='Income Level', hole=0.4,
+                 color_discrete_sequence=[COLORS[1], COLORS[0]], title="Distribution")
+    return apply_dark_theme(fig)

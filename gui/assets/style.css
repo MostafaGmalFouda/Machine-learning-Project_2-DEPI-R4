@@ -1,0 +1,151 @@
+/* 1. Core Variables (Central Color Management) */
+:root {
+    --app-bg: #0a192f;         /* Dark application background */
+    --side-bg: #052c4b;        /* Sidebar and card background */
+    --input-bg: #0d2538;       /* Input fields background */
+    --cyan-accent: #64ffda;    /* Primary accent color (Cyan) */
+    --text-dim: rgba(255, 255, 255, 0.6);
+}
+
+/* 2. Global Settings */
+body {
+    background-color: var(--app-bg);
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    color: white !important;
+}
+
+/* 3. Sidebar */
+.mini-sidebar-container {
+    background: var(--side-bg);
+    height: 100vh;
+    width: 220px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    border-radius: 0 40px 40px 0;
+    box-shadow: 10px 0 30px rgba(0,0,0,0.2);
+}
+
+.main-body-content {
+    margin-left: 220px;
+    padding: 2rem;
+    min-height: 100vh;
+}
+
+.app-logo-img {
+    display: block;
+    max-width: 100px;
+    margin: 40px auto;
+}
+
+/* 4. Navigation Links */
+.nav-text-link {
+    display: block;
+    color: var(--text-dim) !important;
+    padding: 15px 25px;
+    text-decoration: none !important;
+    font-weight: 500;
+    border-left: 4px solid transparent;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.nav-text-link:hover {
+    color: white !important;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.nav-text-link.active {
+    color: var(--cyan-accent) !important;
+    background: rgba(100, 255, 218, 0.1);
+    border-left: 4px solid var(--cyan-accent);
+}
+
+/* 5. Cards */
+.stat-card-glass, .chart-card-modern {
+    background: var(--side-bg);
+    border-radius: 20px;
+    border: 1px solid rgba(255,255,255,0.05);
+    padding: 15px;
+}
+
+/* 6. Final Solution for Dropdowns */
+
+/* Selected text and search input text */
+.custom-dropdown .Select-value-label, 
+.custom-dropdown .Select-input > input {
+    color: white !important; 
+}
+
+/* Placeholder text */
+.custom-dropdown .Select-placeholder {
+    color: rgba(255, 255, 255, 0.5) !important;
+}
+
+/* Input field frame */
+.custom-dropdown .Select-control {
+    background-color: var(--input-bg) !important;
+    border: 1px solid rgba(100, 255, 218, 0.3) !important;
+    border-radius: 8px;
+}
+
+/* Menu when opened */
+.custom-dropdown .Select-menu-outer {
+    background-color: var(--input-bg) !important;
+    border: 1px solid var(--cyan-accent) !important;
+    color: white !important;
+    z-index: 9999 !important;
+}
+
+/* Items inside the menu */
+.custom-dropdown .VirtualizedSelectOption {
+    background-color: var(--input-bg) !important;
+    color: white !important;
+}
+
+/* Item on hover (Focus) */
+.custom-dropdown .VirtualizedSelectFocusedOption {
+    background-color: #1a3a5a !important;
+    color: var(--cyan-accent) !important;
+}
+
+/* 7. Numerical Fields */
+.dark-input {
+    background-color: var(--input-bg) !important;
+    border: 1px solid rgba(100, 255, 218, 0.3) !important;
+    color: white !important;
+    border-radius: 8px;
+    padding: 8px;
+}
+
+.dark-input:focus {
+    outline: none;
+    border-color: var(--cyan-accent) !important;
+    box-shadow: 0 0 0 0.2rem rgba(100, 255, 218, 0.1) !important;
+}
+
+/* 8. Modern Predict Button */
+.predict-button-modern {
+    background: var(--cyan-accent);
+    color: #0a192f;
+    border: none;
+    padding: 15px;
+    border-radius: 12px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: 0.3s ease;
+    width: 100%;
+}
+
+.predict-button-modern:hover {
+    transform: translateY(-2px);
+    background: #4cd3b5;
+    box-shadow: 0 5px 15px rgba(100, 255, 218, 0.3);
+}
+
+.predict-button-modern:active {
+    transform: translateY(0px);
+}
