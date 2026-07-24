@@ -19,7 +19,13 @@ try:
     import visuals 
     from utils.load_models import load_all
     models, scaler, features, metrics = load_all()
-    features = [f.strip() for f in features]
+    if features is not None:
+     features = [f.strip() for f in features]
+    else:
+     features = []
+
+
+    
 except Exception as e:
     print(f"❌ Error during initialization: {e}")
     models, scaler, features, metrics = {}, None, [], {}
